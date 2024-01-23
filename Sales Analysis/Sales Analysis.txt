@@ -1,0 +1,85 @@
+1. Most sold products all together (Pie chart)
+2. Highest sales in which month (Bar chart) / In which city most of the orders take place
+
+-------------
+
+1. Feather data - stores data in binary format
+
+2. Pandas 
+		-> Data Manipulation
+
+3. numpy 
+		-> to perform any numerical computations over numerical data
+
+4. visualization 
+		-> matplotlib
+		-> Seaborn - beautiful looking plot very quickly
+		-> Plotly - Dynamic plot
+		
+-----------------------------
+--------------------------------
+
+I. Understanding Use case
+
+II. Data Preprocessing: ETL pipeline
+
+	1. Extract Data:
+		- import data - feather file
+		- raw data
+	
+	2. Transform data into acceptable format
+		- duplicate rows?
+		- irrelevant rows?
+		- is there any error?
+		- missing value?
+		- data types?
+
+III. EDA 
+
+	1.which is the best month for sale? 
+		- best = maximum sale (any month having max sale is considered best month for sale)
+				- sales = qty*price
+				- month - extract using funct.
+		- sum the sales for each month
+				- group by: Month
+				- sum: sales for each month
+		- plot graph
+	
+	2. which city has maximum order?
+		- fetch the city 
+		- keep its count(freq. table): pd.value_counts(all_data['city'])
+	
+	3. What product sold the most & Why?
+	
+		i. WHY?
+			- good user rating
+			- low price
+			- 
+		ii. Table:
+			- product --- group by 
+			- qty ordered ~ (total qty for each product) --- sum()
+			- price each ~ (avg. price for that product) --- mean()
+		
+		iii. Axis for graph
+			- x:  product
+			- y1: order_count --- bar graph
+			- y2: avg price of the product --- line graph
+	
+	4. Understanding Trend of the most sold product ?
+	
+		- most sold product: most purchased products by the user
+		- pivot table
+		
+	5. What products are most often sold together ?
+	
+		- keep duplicated order id
+		- group that order id
+		- list all products for that order id in new column
+		- use join() and ',' separator ---- with the help of lambda
+		
+		Order_id	Product		', '.join(x)
+		101			Iphone		Iphone, Laptop, Bag
+					Laptop
+					Bag
+		
+	

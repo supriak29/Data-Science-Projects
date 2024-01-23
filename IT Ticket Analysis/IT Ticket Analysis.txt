@@ -1,0 +1,20 @@
+1. Get data: excel
+
+2. Transform
+
+	i. RequestorSeniority, Severity, Priority, Satisfaction: 
+		- Split the data in this column by delimiter: ' - '
+		- Delete the columns with numbers
+		- Rename other column accordingly: RequestorSeniority, Severity, Priority, Satisfaction
+		
+	ii. Add new table: 'Last Refresh Date'
+		- means when user come to our to see the dashboard, they will know when this dashboard was refreshed last time
+		
+		- New Source -> Blank Query -> Advanced Editor:
+			let
+			LastRefreshDate = #table(type table[LastRefresh=datetime], {{DateTime.LocalNow()}})
+			in
+			LastRefreshDate
+		
+		- Rename: 'Last Refresh Date'
+
